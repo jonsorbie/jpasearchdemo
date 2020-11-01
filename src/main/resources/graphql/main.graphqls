@@ -1,0 +1,25 @@
+# All available queries on this graphql server
+type Query {
+    petNamed(name: String): Pet
+    petsOfSpecies(species: Species): [Pet]
+    ownersNamed(firstName: String): [Owner]
+}
+
+type Owner {
+    firstName: String!
+    lastName: String!
+    pets: [Pet]
+}
+
+type Pet {
+    name: String
+    species: Species!
+    age: Int
+    owner: Owner
+}
+
+enum Species {
+    CAT
+    DOG
+    FISH
+}
